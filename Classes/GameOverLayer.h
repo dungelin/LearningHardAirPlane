@@ -31,8 +31,8 @@ public:
 	virtual void keyBackClicked();
 	void beginChangeHighestScore(CCNode *pNode);
 	void showAD();
+	static int highestHistoryScore;
 private:
 	int score;
-	static int highestHistoryScore;
 	CCLabelBMFont *highestScore;
 };
