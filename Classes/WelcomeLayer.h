@@ -28,6 +28,6 @@ public:
 
 	// Android返回键被按下时调用的方法
 	virtual void keyBackClicked();
-	bool isHaveSaveFile();
+	bool isHaveHistoryScore();
 	void getHighestHistoryScore();
 };

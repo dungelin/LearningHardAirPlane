@@ -1,7 +1,12 @@
+#include <vector>
+#include <string>
+
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "WelcomeScene.h"
+#include "AppMacros.h"
 
 USING_NS_CC;
+using namespace std;
 
 AppDelegate::AppDelegate() {
 
@@ -25,7 +30,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene *pScene = WelcomeScene::scene();
 
     // run
     pDirector->runWithScene(pScene);
