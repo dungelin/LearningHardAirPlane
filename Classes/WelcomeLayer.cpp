@@ -18,20 +18,20 @@ bool WelcomeLayer::init()
 	// 把图片添加进全局的精灵框帧缓存
 	// CCSpriteFrameCache主要服务于多张碎图片合并起来的纹理图片
 	// 精灵通过切换不同的框帧来显示不同的图案
-	CCSpriteFrameCache::sharedSpriteFrameCache()()->addSpriteFramesWithFile("ui/shoot_background.plist");
-	CCSpriteFrameCache::sharedSpriteFrameCache()()->addSpriteFramesWithFile("ui/shoot.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/shoot_background.plist");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/shoot.plist");
 
 	// 获得窗体大小
-	CCSize winSize =CCDirector::sharedDirector()()->getWinSize();
+	CCSize winSize =CCDirector::sharedDirector()->getWinSize();
 
 	// 添加背景图片并设置显示位置
 	CCSprite *background =CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("background.png"));
-	background->setPosition(ccp(winSize.width/2,winSize.height/2));//?
+	background->setPosition(ccp(winSize.width/2,winSize.height/2));
 	this->addChild(background);
 
 	// 添加版权图片并设置显示位置
-	CCSprite *copyright =CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("shot_copyright.png"));
-	copyright->setAnchorPoint(ccp(0.5,0.5));
+	CCSprite *copyright =CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("shoot_copyright.png"));
+	//copyright->setAnchorPoint(ccp(0.5,0.5));
 	copyright->setPosition(ccp(winSize.width/2,winSize.height/2));
 	this->addChild(copyright);
 
@@ -55,9 +55,9 @@ bool WelcomeLayer::init()
 	// 创建一个重复性动作，设置该动作重复2次
 	CCRepeat *repeataction=CCRepeat::create(animate,2);
 	// 创建方法调用动作，loadingDone方法在播放完动画后被调用
-	CCCallFuncN *repeatDone =CCCallFuncN::create(this,callfuncN_selector(WelcomeLayer::loadingDone()));
+	CCCallFuncN *repeatDone =CCCallFuncN::create(this,callfuncN_selector(WelcomeLayer::loadingDone));
 	// 创建序列动作，即动作集合，集合动作会按照顺序执行
-	CCSequence *sequenceaction =CCSequence::create(repeataction,repeataction,NULL);
+	CCSequence *sequenceaction =CCSequence::create(repeataction,repeatDone,NULL);
 	// 让精灵执行序列动作
 	loading->runAction(sequenceaction);
 

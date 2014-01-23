@@ -9,19 +9,50 @@
  *    
  * This piece of code does not have any registered copyright and is free to be 
  * used as necessary. The user is free to modify as per the requirements. As a
- * fellow developer, all that I expect and request for is to be given the 
- * credit for intially developing this reusable code by not removing my name as 
- * the author.
+ * fellow developer, I expect is not to remove the name of Author.
 \***************************************************************************/
 
 #pragma once
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+#include "PlaneLayer.h"
 
 USING_NS_CC;
 
-public GameLayer:public CCLayer
+class GameLayer:public CCLayer
 {
+public:
+	GameLayer(void);
+	~GameLayer(void);
+	CREATE_FUNC(GameLayer);
+    virtual bool init();
+	void backgroundMove(float dt);
 
-}
+	bool ccTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
+	
+	void ccTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
+
+	void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+
+	void registerWithTouchDispatcher();
+	void update(float delta);
+
+	void menuBigBoomCallback(CCObject* pSender);
+
+	void updateBigBoomItem(int bigBoomCount);
+	virtual void keyBackClicked();
+	
+private:
+	CCSprite *background1;
+	CCSprite *background2;
+
+	// 游戏层中的其他层
+	PlaneLayer  *planeLayer;
+
+	CCMenu *menuBigBoom;
+	CCLabelBMFont *bigBoomCountItem;
+
+	int score;
+	int bigBoomCount;
+};

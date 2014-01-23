@@ -1,4 +1,4 @@
-#include "WelcomeLayer.h"
+#include "WelcomeScene.h"
 
 WelcomeScene::WelcomeScene(void)
 {

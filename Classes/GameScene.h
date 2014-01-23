@@ -9,9 +9,7 @@
  *    
  * This piece of code does not have any registered copyright and is free to be 
  * used as necessary. The user is free to modify as per the requirements. As a
- * fellow developer, all that I expect and request for is to be given the 
- * credit for intially developing this reusable code by not removing my name as 
- * the author.
+ * fellow developer, I expect is not to remove the name of Author.
 \***************************************************************************/ 
 
 #pragma once
@@ -25,5 +23,5 @@ public:
 	~GameScene(void);
 	CREATE_FUNC(GameScene);
 	virtual bool init();
-	GameLayer *GameLayer;
+	GameLayer *gameLayer;
 };
