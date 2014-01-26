@@ -2,6 +2,7 @@
 #include "GameOverScene.h"
 
 PlaneLayer* PlaneLayer::sharePlane=NULL;
+
 PlaneLayer::PlaneLayer(void)
 {
 	isAlive=true;
@@ -12,6 +13,23 @@ PlaneLayer::~PlaneLayer(void)
 {
 
 }
+
+PlaneLayer* PlaneLayer::create() 
+{ 
+	PlaneLayer *pRet = new PlaneLayer();
+	if (pRet && pRet->init())
+	{
+		pRet->autorelease();
+		sharePlane=pRet;
+		return pRet;
+	}
+	else
+	{
+		CC_SAFE_DELETE(pRet);
+		return NULL;
+	}
+}
+
 bool PlaneLayer::init()
 {
 	if(!CCLayer::init())

@@ -23,7 +23,7 @@ public:
 	 PlaneLayer(void);
 	~PlaneLayer(void);
 
-	CREATE_FUNC(PlaneLayer);
+	static PlaneLayer* create();
 
 	virtual bool init();
 	void MoveTo(CCPoint location);
