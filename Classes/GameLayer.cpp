@@ -111,7 +111,7 @@ void GameLayer::ccTouchMoved( CCTouch *pTouch,CCEvent *pEvent )
 		endPoint =CCDirector::sharedDirector()->convertToGL(endPoint);
 		CCSize winSize =CCDirector::sharedDirector()->getWinSize();
 		// ÅÐ¶ÏÍÏ¶¯ÇøÓò
-		CCRect dragRect =CCRect::CCRect(0.0f,0.0f,winSize.width,winSize.height);
+		CCRect dragRect =CCRectMake(0.0f,0.0f,winSize.width,winSize.height);
 		if (dragRect.containsPoint(this->getParent()->convertTouchToNodeSpace(pTouch)))
 		{
 			CCPoint beginPoint =pTouch->getPreviousLocationInView();
