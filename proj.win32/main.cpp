@@ -15,8 +15,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     // create the application instance
     AppDelegate app;
     CCEGLView* eglView = CCEGLView::sharedOpenGLView();
-    eglView->setViewName("LearningAriPlane");
+    eglView->setViewName("LearningAriPlane");	
     eglView->setFrameSize(480, 800);
 	eglView->setFrameZoomFactor(0.5f);
+    
     return CCApplication::sharedApplication()->run();
 }

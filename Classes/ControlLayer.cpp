@@ -17,7 +17,6 @@ bool ControlLayer::init()
 	{
 		return false;
 	}
-
 	CCSize winSize =CCDirector::sharedDirector()->getWinSize();
 
 	// Ìí¼ÓÔÝÍ£²Ëµ¥
@@ -25,7 +24,7 @@ bool ControlLayer::init()
 	CCSprite* pressedPause=CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("game_pause_pressed.png"));
 	pPauseItem=CCMenuItemImage::create();
 	pPauseItem->initWithNormalSprite(normalPause,pressedPause,NULL,this,menu_selector(ControlLayer::menuPauseCallback));
-	pressedPause->setPosition(ccp(normalPause->getContentSize().width/2+10,winSize.height-normalPause->getContentSize().height/2-10));
+	pPauseItem->setPosition(ccp(normalPause->getContentSize().width/2+10,winSize.height-normalPause->getContentSize().height/2-10));
 	CCMenu *menuPause=CCMenu::create(pPauseItem,NULL);
 	menuPause->setPosition(CCPointZero);
 	this->addChild(menuPause,101);

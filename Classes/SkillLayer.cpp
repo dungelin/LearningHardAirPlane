@@ -101,7 +101,7 @@ void SkillLayer::RemoveMutiBullets( CCSprite* mutiBullets )
 	this->mutiBulletsArray->removeObject(mutiBullets);
 }
 
-void SkillLayer::RemoveBigBoom( CCSprite* bigBoom )
+void SkillLayer::RemoveBigBoom(CCSprite* bigBoom)
 {
 	this->removeChild(bigBoom,true);
 	this->bigBoomArray->removeObject(bigBoom);

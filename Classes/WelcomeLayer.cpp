@@ -74,7 +74,7 @@ void WelcomeLayer::loadingDone(CCNode* pNode)
 {
 	CCScene *gameScene =GameScene::create();
 	// 创建从下边移动到上边场景特效
-	CCTransitionMoveInB *animateScene =CCTransitionMoveInB::create(0.5,gameScene);
+	CCTransitionMoveInB *animateScene =CCTransitionMoveInB::create(0.05f,gameScene);
 	// 切换创建，使游戏场景可见，WelcomeScene被替代
 	CCDirector::sharedDirector()->replaceScene(animateScene);
 }

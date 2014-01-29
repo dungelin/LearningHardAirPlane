@@ -103,7 +103,7 @@ void EnemyLayer::addEnemy1( float dt )
 		break;
 	case HARD:
 		minDuration=1.6;
-		maxDuration=3.2;
+		maxDuration=3.0;
 		break;
 	default:
 		minDuration=2.0;

@@ -55,7 +55,7 @@ public:
 
 	void updateBigBoomItem(int bigBoomCount);
 	virtual void keyBackClicked();
-
+	
 	static Level getCurLevel();
 	
 private:

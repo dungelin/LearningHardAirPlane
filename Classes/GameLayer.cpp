@@ -29,62 +29,64 @@ bool GameLayer::init()
 		return false;
 	}
 		// 加载背景音乐
-		if (!CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
-		{
-			CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("sound/game_music.mp3",true);
-		}
+	if (!CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
+	{
+		CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("sound/game_music.mp3",true);
+	}
 
-		// 加载背景图片1
-		background1=CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("background.png"));
-		background1->setAnchorPoint(ccp(0,0));
-		background1->setPosition(ccp(0,0));
-		this->addChild(background1);
+	// 加载背景图片1
+	background1=CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("background.png"));
+	background1->setAnchorPoint(ccp(0,0));
+	background1->setPosition(ccp(0,0));
+	background1->getTexture()->setAntiAliasTexParameters();
+	this->addChild(background1);
 
-		//加载background2
-		background2=CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("background.png"));
-		background2->setAnchorPoint(ccp(0,0));
-		background2->setPosition(ccp(0,background2->getContentSize().height-2));
-		this->addChild(background2);
+	//加载background2
+	background2=CCSprite::createWithSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("background.png"));
+	background2->setAnchorPoint(ccp(0,0));
+	background2->setPosition(ccp(0,background2->getContentSize().height-2));
+	background2->getTexture()->setAntiAliasTexParameters();
+	this->addChild(background2);
 
-		//加入planeLayer
-		this->planeLayer=PlaneLayer::create();
-		this->addChild(planeLayer);
+	//加入planeLayer
+	this->planeLayer=PlaneLayer::create();
+	this->addChild(planeLayer);
 
-		//加入bulletLayer
-		this->bulletLayer=BulletLayer::create();
-		this->addChild(bulletLayer);
-		this->bulletLayer->StartShoot();
+	//加入bulletLayer
+	this->bulletLayer=BulletLayer::create();
+	this->addChild(bulletLayer);
+	this->bulletLayer->StartShoot();
 
 
-		// 加入mutiBulletsLayer层
-		this->mutiBulletsLayer =MutiBulletsLayer::create();
-		this->addChild(mutiBulletsLayer);
+	// 加入mutiBulletsLayer层
+	this->mutiBulletsLayer =MutiBulletsLayer::create();
+	this->addChild(mutiBulletsLayer);
 
-		// 加入enemyLayer
-		this->enemyLayer=EnemyLayer::create();
-		this->addChild(enemyLayer);
+	// 加入enemyLayer
+	this->enemyLayer=EnemyLayer::create();
+	this->addChild(enemyLayer);
 
-		// 加入controlLayer
-		this->controlLayer=ControlLayer::create();
-		this->addChild(controlLayer);
+	// 加入controlLayer
+	this->controlLayer=ControlLayer::create();
+	this->addChild(controlLayer);
 		
-		// 加入SkillLayer
-		this->skillLayer=SkillLayer::create();
-		this->addChild(skillLayer);
+	// 加入SkillLayer
+	this->skillLayer=SkillLayer::create();
+	this->addChild(skillLayer);
 
-		//设置可触摸
-		this->setTouchEnabled(true);
+	//设置可触摸
+	this->setTouchEnabled(true);
 
-		//执行任务计划
-		this->schedule(schedule_selector(GameLayer::backgroundMove),0.01f);
+	//执行任务计划
+	this->schedule(schedule_selector(GameLayer::backgroundMove),0.01f);
 
-		//碰撞检测
-		this->scheduleUpdate();
+	//碰撞检测
+	this->scheduleUpdate();
+		
+	//设置按键有效
+	this->setKeypadEnabled(true);
 
-		//设置按键有效
-		this->setKeypadEnabled(true);
-
-		return true;
+	return true;
 }
 
 // 背景滚动
